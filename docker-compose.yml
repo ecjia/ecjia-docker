@@ -34,7 +34,7 @@ services:
             - db
         container_name: ecjia-daojia
         build:
-            context: ./services/nginx/nginx-php7
+            context: ./services/nginx-php7
             dockerfile: Dockerfile
         links:
             - db
