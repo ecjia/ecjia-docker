@@ -4,7 +4,7 @@
 
 > cd ecjia-docker
 
-> docker-compose up --d
+> docker-compose up -d
 
 
 安装时数据库配置信息：
