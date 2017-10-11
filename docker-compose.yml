@@ -1,0 +1,49 @@
+version: '2'
+
+# 定义服务
+services:
+    db:
+        image: mysql:5.6
+        container_name: ecjia-daojia-db
+        volumes:
+            - "./.data/db:/var/lib/mysql"
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ecjia@ecjia.com
+            MYSQL_DATABASE: ecjia-daojia
+            MYSQL_USER: ecjia
+            MYSQL_PASSWORD: ecjiadaojia123
+
+    phpmyadmin:
+        depends_on:
+            - db
+        image: corbinu/docker-phpmyadmin
+        container_name: ecjia-daojia-phpmyadmin
+        links:
+            - db
+        ports:
+            - 8081:80
+        environment:
+            MYSQL_USER: root
+            MYSQL_ROOT_PASSWORD: ecjia@ecjia.com
+            MYSQL_PORT_3306_TCP_ADDR: db
+            MYSQL_PORT_3306_TCP_PORT: 3306
+
+    web:
+        depends_on:
+            - db
+        container_name: ecjia-daojia
+        image: skiychan/nginx-php7:latest
+        links:
+            - db
+        ports:
+            - "8080:80"
+        volumes:
+            - "./www:/data/www"
+            - "./uploads:/data/www/content/uploads"
+            - "./storages:/data/www/content/storages"
+            - "./services/nginx/vhost:/usr/local/nginx/conf/vhost"
+            - "./services/nginx/ssl:/usr/local/nginx/conf/ssl"
+            - "./services/php/php.d:/usr/local/php/etc/php.d"
+            - "./services/php/phpext:/data/phpext"
+        restart: always
