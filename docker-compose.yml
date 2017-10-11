@@ -33,7 +33,9 @@ services:
         depends_on:
             - db
         container_name: ecjia-daojia
-        image: skiychan/nginx-php7:latest
+        build:
+            context: ./services/nginx/nginx-php7
+            dockerfile: Dockerfile
         links:
             - db
         ports:
