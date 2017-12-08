@@ -32,7 +32,7 @@ docker-compose up --build
 | 默认数据库账号     | root |
 | 默认数据库密码        |   ecjia@password   |
 | 默认数据库        |    ecjia-db    |
->PS：默认是php5.6和mysql5.6版本版本，如需更改版本，请修改env-example文件，复制为.env，还可以更改端口。  
+>PS：默认是php5.6和mysql5.6版本版本，如需更改版本，请复制env-example为.env进行修改，还可修改端口，未来会增加更多变量。  
 ><font color=red> **php5.4** </font>版本暂不可用，请选择以上版本。
 
 
