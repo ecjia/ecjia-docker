@@ -1,7 +1,7 @@
 ######
 # See: https://hub.docker.com/_/php/  基于官方php修改，适用于5.x至最新版本
 
-FROM php:7.0-fpm
+FROM php:5.5-fpm
 MAINTAINER imoegay <imoegay@gmail.com.com>
 
 ######
@@ -21,17 +21,6 @@ RUN cd /etc/apt/ \
         libpng12-dev \
         libxml2-dev \
 ###安装php组件
-    RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath exif \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd \
-    && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
-    && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
-    && docker-php-ext-configure imap --with-kerberos=/usr --with-imap-ssl \    
-    && docker-php-ext-install -j$(nproc)  imap \
-    && docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr \
-    && docker-php-ext-install -j$(nproc) pdo_odbc \
-    && docker-php-ext-install -j$(nproc) ldap mbstring mysql  pdo  xml xmlrpc \
-    && pecl install memcached-2.2.0 \
-    && docker-php-ext-enable memcached \
-    && pecl install igbinary \ 
-    && docker-php-ext-enable igbinary
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache mysqli bcmath calendar dba dom  exif sockets session bcmath bcmath xmlrpc
