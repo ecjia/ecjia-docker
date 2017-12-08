@@ -9,6 +9,7 @@ ECjia docker使用docker搭建web服务。
     - ```php-fpm：存放Dockerfile和php.ini配置```
     - ```mysql：存放my.cnf配置文件```
     - ```memcached：存放memcached Dockerfile```
+
 **db：**存放mysql数据文件
 **www：**存放网站数据
 **env-example：**默认变量变量配置文件，请复制为.env使用
@@ -21,7 +22,7 @@ ECjia docker使用docker搭建web服务。
 
 ### 编译和运行
 ```bash
-cd ./Ecjia docker```
+cd ./Ecjia docke
 docker-compose build
 docker-compose up
 ```
