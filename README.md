@@ -23,8 +23,7 @@ ECjia docker使用docker搭建web服务。
 ### 编译和运行
 ```bash
 cd ./Ecjia docke
-docker-compose build
-docker-compose up
+docker-compose up --build
 ```
 
 ### 配置
