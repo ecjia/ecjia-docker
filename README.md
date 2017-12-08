@@ -9,7 +9,8 @@ ECjia docker使用docker搭建web服务。
     - ```php-fpm：存放Dockerfile和php.ini配置```  
     - ```mysql：存放my.cnf配置文件```  
     - ```memcached：存放memcached Dockerfile```  
- **db：** 存放mysql数据文件  
+ **db：** 存放mysql，memcached数据文件  
+ **log：** 存放日志  
  **www：** 存放网站数据  
  **env-example：** 默认变量变量配置文件，请复制为.env使用  
 >  **注意：** 请chown赋予www文件夹**www-data**用户和用户组，以保证文件夹权限满足程序运行要求。 
