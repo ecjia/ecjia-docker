@@ -25,8 +25,6 @@ cd ./Ecjia docke
 docker-compose build
 docker-compose up
 ```
->PS：默认是php5.6版本，如需更改版本，请修改env-example文件，复制为.env
->**<font color=red>php5.4</font>**版本暂不可用，请选择以上版本。
 
 ### 配置
 |名称        | 值   |
@@ -34,6 +32,8 @@ docker-compose up
 | 默认数据库账号     | root |
 | 默认数据库密码        |   ecjia@password   |
 | 默认数据库        |    ecjia    |
+>PS：默认是php5.6和mysql5.6版本版本，如需更改版本，请修改env-example文件，复制为.env，还可以更改端口。  
+>**<font color=red>php5.4</font>**版本暂不可用，请选择以上版本。
 
 
   [1]: http://backup-1251457607.cossh.myqcloud.com/1.png
