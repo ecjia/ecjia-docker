@@ -6,7 +6,7 @@ services:
     ports:
       - "${MYSQL_PORT}:3306"
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db/mysql:/var/lib/mysql
       - ./services/mysql/my.cnf:/etc/my.cnf:ro
       - ./logs/mysql:/var/log/
     environment:
