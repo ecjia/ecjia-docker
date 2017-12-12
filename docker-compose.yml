@@ -11,9 +11,9 @@ services:
       - ./logs/mysql:/var/log/
     environment:
       MYSQL_ROOT_PASSWORD: ecjia@password
-#      MYSQL_DATABASE: ecjia
-#      MYSQL_USER: ecjia
-#      MYSQL_PASSWORD: ecjia123
+      MYSQL_DATABASE: ecjia-daojia
+      MYSQL_USER: ecjia
+      MYSQL_PASSWORD: ecjia123
 
 ### phpmyadmin ###
   ecjia-phpmyadmin:
@@ -21,8 +21,8 @@ services:
     ports:
         - "${PHPMYADMIN_PORT}:80"
     environment:
-        MYSQL_USER: root
-        MYSQL_ROOT_PASSWORD: ecjia@password
+        MYSQL_USER: ecjia
+        MYSQL_PASSWORD: ecjia123
         MYSQL_PORT_3306_TCP_ADDR: ecjia-db
         MYSQL_PORT_3306_TCP_PORT: 3306
     links:
@@ -33,7 +33,7 @@ services:
 
 ### php-fpm ###
   ecjia-fpm:
-    container_name: ecjia-php${PHP_VERSION}
+    container_name: ecjiadocker_ecjia-php${PHP_VERSION}
     build: 
       context: ./services/php-fpm
       dockerfile: "Dockerfile-${PHP_VERSION}"
@@ -62,7 +62,7 @@ services:
       - ./services/nginx/conf.d/:/etc/nginx/conf.d/:ro
       # certificates
 #      - ./nginx/ca/server.crt/:/etc/nginx/server.crt:ro
-#      - ./nginx/ca/server.key/:/etc/nginx/server.key:ro
+#     - ./nginx/ca/server.key/:/etc/nginx/server.key:ro
       # log
       - ./logs/nginx:/var/log/nginx/
     links:
@@ -81,6 +81,8 @@ services:
 #      - 6379:6379
 #    depends_on:
 #      - fpm
+
+### memcached ###
 
   ecjia-memcached:
     build: 
