@@ -29,9 +29,9 @@ docker-compose up --build
 ### 配置
 |名称        | 值   |
 | --------   | -----:  |
-| 默认http\|https端口     | 81\|443 |
+| 默认http\|https端口     | 81\|444 |
 | 默认phpmyadmin端口     | 8081 |
-| 默认mysql端口（外\|内)     | 3307\|3306 |
+| 默认mysql端口(外\|内)     | 3307\|3306 |
 | 默认数据库地址     | ecjia-db |
 | 默认数据库        | ecjia-daojia |
 | 默认数据库账号     | ecjia |
