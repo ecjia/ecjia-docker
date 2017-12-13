@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
 ### mysql ###
   ecjia-db:
@@ -25,15 +25,14 @@ services:
         MYSQL_PASSWORD: ecjia123
         MYSQL_PORT_3306_TCP_ADDR: ecjia-db
         MYSQL_PORT_3306_TCP_PORT: 3306
-    links:
+    external_links:
       - ecjia-db
     depends_on:
       - ecjia-db
   
 
 ### php-fpm ###
-  ecjia-fpm:
-    container_name: ecjiadocker_ecjia-php${PHP_VERSION}
+  ecjia-php:
     build: 
       context: ./services/php-fpm
       dockerfile: "Dockerfile-${PHP_VERSION}"
@@ -42,7 +41,7 @@ services:
     volumes:
       - ./www:/usr/share/nginx/html
       - ./services/php-fpm/php.ini-${PHP_VERSION}:/usr/local/etc/php/php.ini:ro
-    links:
+    external_links:
       - ecjia-db
     depends_on: 
       - ecjia-db
@@ -65,10 +64,10 @@ services:
 #     - ./nginx/ca/server.key/:/etc/nginx/server.key:ro
       # log
       - ./logs/nginx:/var/log/nginx/
-    links:
-      - ecjia-fpm
+    external_links:
+      - ecjia-php
     depends_on:
-      - ecjia-fpm
+      - ecjia-php
     restart: always
 
 ### Redis ###
@@ -92,4 +91,4 @@ services:
     ports:
       - "11211:11211"
     depends_on:
-      - ecjia-fpm
+      - ecjia-db
