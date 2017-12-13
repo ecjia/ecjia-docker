@@ -8,11 +8,10 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 # 你可以通过 docker-php-ext-install 安装组件
 ######
 
-# RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 ###国内下载加速
-RUN cd /etc/apt/ \
-    && rm -rf sources.list \ 
-    && curl -o sources.list  https://mirrors.ustc.edu.cn/repogen/conf/debian-http-4-jessie \
+    RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    && sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    &&  sed -i 's|security.debian.org|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list \
 ###安装编译php工具
     && apt-get update && apt-get install -y \
         libfreetype6-dev \
