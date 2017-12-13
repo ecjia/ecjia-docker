@@ -60,8 +60,7 @@ services:
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./services/nginx/conf.d/:/etc/nginx/conf.d/:ro
       # certificates
-      - ./services/nginx/ca/server.crt:/etc/nginx/server.crt:ro
-      - ./services/nginx/ca/server.key:/etc/nginx/server.key:ro
+      - ./services/nginx/ca/:/etc/nginx/:ro
       # log
       - ./logs/nginx:/var/log/nginx/
     external_links:
