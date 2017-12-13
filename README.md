@@ -49,7 +49,9 @@ docker-compose up --build
 php.ini的配置文件在./services/php-fpm/目录，nginx的配置文件在./services/nginx/目录，mysql的配置文件在./services/mysql/目录。  
 你只需要修改对应文件，然后重启启动容器即可。  
 * 我需要配置https，如何配置，支持吗？  
-支持https，你只需要将证书放入./services/nginx/ca/目录下，然后更改nginx虚拟主机配置文件即可，示例为default_ssl.conf。
+支持https，你只需要：
+1、将证书放入./services/nginx/ca/目录下。
+2、修改.env文件CRT_NAME=crt文件名（不含后缀），KEY_NAME=key文件名（不含后缀）。
 
 
 
