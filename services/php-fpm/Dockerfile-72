@@ -8,17 +8,15 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 # 你可以通过 docker-php-ext-install 安装组件
 ######
 
-# RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 ###国内下载加速
-RUN cd /etc/apt/ \
-    && rm -rf sources.list \ 
-    && curl -o sources.list  https://mirrors.ustc.edu.cn/repogen/conf/debian-http-4-jessie \
+    RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    && sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    &&  sed -i 's|security.debian.org|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list \
 ###安装编译php工具
     && apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
         libxml2-dev \
         libmemcached-dev \
         zlib1g-dev \
@@ -28,17 +26,20 @@ RUN cd /etc/apt/ \
         libldap2-dev \
         unixodbc-dev 
 ###安装php组件
-    RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath exif sockets session mbstring \
+    RUN docker-php-ext-install -j$(nproc) iconv  bcmath exif sockets session mbstring \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
-    && docker-php-ext-configure imap --with-kerberos=/usr --with-imap-ssl \    
+    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \    
     && docker-php-ext-install -j$(nproc)  imap \
     && docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr \
     && docker-php-ext-install -j$(nproc) pdo_odbc \
-    && docker-php-ext-install -j$(nproc) ldap mysql mysqli pdo pdo_mysql xml xmlrpc \
-    && pecl install memcached-2.2.0 \
+    && docker-php-ext-install  -j$(nproc) ldap  mysqli pdo pdo_mysql xml xmlrpc \
+    && pecl install memcached \
     && docker-php-ext-enable memcached \
     && pecl install igbinary \ 
     && docker-php-ext-enable igbinary
+
+    
+
