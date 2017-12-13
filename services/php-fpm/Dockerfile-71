@@ -2,7 +2,7 @@
 # See: https://hub.docker.com/_/php/  基于官方php修改，适用于5.x至最新版本
 
 FROM php:7.1-fpm
-MAINTAINER imoegay <imoegay@gmail.com.com>
+MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 
 ######
 # 你可以通过 docker-php-ext-install 安装组件
