@@ -7,7 +7,7 @@ services:
       - "${MYSQL_PORT}:3306"
     volumes:
       - ./db/mysql:/var/lib/mysql
-      - ./services/mysql/my.cnf:/etc/my.cnf:ro
+      - ./services/mysql/my.cnf:/etc/mysql/my.cnf:ro
       - ./logs/mysql:/var/log/
     environment:
       MYSQL_ROOT_PASSWORD: ecjia@password
@@ -17,20 +17,17 @@ services:
 
 ### phpmyadmin ###
   ecjia-phpmyadmin:
-    image: corbinu/docker-phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: ecjia-db
+      PMA_PORT: 3306
     ports:
         - "${PHPMYADMIN_PORT}:80"
-    environment:
-        MYSQL_USER: ecjia
-        MYSQL_PASSWORD: ecjia123
-        MYSQL_PORT_3306_TCP_ADDR: ecjia-db
-        MYSQL_PORT_3306_TCP_PORT: 3306
     external_links:
       - ecjia-db
     depends_on:
       - ecjia-db
   
-
 ### php-fpm ###
   ecjia-php:
     build: 
@@ -55,7 +52,7 @@ services:
       - "${WEB_HTTPS}:443"
     volumes:
       # app
-      - ./www:/usr/share/nginx/html
+      - ./www:/usr/share/nginx/html:ro
       # nginx configs
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./services/nginx/conf.d/:/etc/nginx/conf.d/:ro
