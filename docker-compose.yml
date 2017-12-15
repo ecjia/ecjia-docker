@@ -52,10 +52,10 @@ services:
       - "${WEB_HTTPS}:443"
     volumes:
       # app
-      - ./www:/usr/share/nginx/html:ro
+      - ./www:/usr/share/nginx/html
       # nginx configs
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./services/nginx/conf.d/:/etc/nginx/conf.d/:ro
+      - ./services/nginx/conf.d:/etc/nginx/conf.d:ro
       # certificates
       - ./services/nginx/ca/${CRT_NAME}.crt:/etc/nginx/server.crt:ro
       - ./services/nginx/ca/${KEY_NAME}.key:/etc/nginx/server.key:ro
