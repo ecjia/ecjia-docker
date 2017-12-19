@@ -24,8 +24,8 @@ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git
 
 ## 编译和运行
 ```bash
-cd ./ECjia docker
-docker-compose up --build
+cd ./ECjia docker    #进入程序目录
+docker-compose up --build    #编译并启动
 ```
 
 ## 配置
@@ -40,7 +40,7 @@ docker-compose up --build
 | 默认数据库密码        |   ecjia123   |  
 > 目前支持php5.4-php7.2，未来php5.4将不受支持，默认php版本为5.6。  
 
-其中默认端口可以通过修改**env-example**文件来调整，请复制env-example为**.env**进行修改。
+其中默认端口可以通过修改**env-example**文件来调整，请复制env-example为**.env**进行修改。  
 [**env-example**][5]为环境变量文件，可通过修改对应变量来调整程序配置，详情见[wiki][6]。
 
 ## [FAQ][7]
