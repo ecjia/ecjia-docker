@@ -5,7 +5,7 @@
 ## 框架
 ![ECjia docker][1]
  **services：** 存放nginx,php-fpm,mysql,memcached,phpmyadmin配置文件  
-    - `nginx`：nginx.conf为nginx配置文件，ca为存放ca证书目录
+    - `nginx`：nginx.conf为nginx配置文件，ca为存放ca证书目录  
     - `php-fpm`：存放Dockerfile和php.ini配置  
     - `mysql`：存放my.cnf配置文件  
     - `memcached`：存放memcached Dockerfile  
