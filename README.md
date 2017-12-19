@@ -10,7 +10,7 @@
     - `mysql`：存放my.cnf配置文件  
     - `memcached`：存放memcached Dockerfile  
  **db：** 存放mysql，memcached数据文件  
- **log：** 存放日志  
+ **logs：** 存放日志  
  **www：** 存放网站数据  
  **env-example：** 默认变量变量配置文件，请复制为.env使用     
 
