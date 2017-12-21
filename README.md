@@ -60,7 +60,7 @@ docker-compose up --build    #编译并启动
 
 
 ## [常见问题][7]
-如果你遇到一些问题和困难，你可以访问常见问题wiki。
+如果你遇到一些问题和困难，你可以访问常见问题wiki。  
 常见问题wiki有关于程序本身可能会存在的问题和一些常见的服务问题，如果没有您遇到的问题，请提[issues](https://gitee.com/ecjia/ecjia-docker/issues)
 
 
