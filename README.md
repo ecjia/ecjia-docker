@@ -1,5 +1,5 @@
 # 简介
-> ***ECjia docker***基于docker部署web服务，采用lnmp主流架构，memcached做缓存，phpmyadmin轻松管理数据库。  
+> **ECjia docker**基于docker部署web服务，采用lnmp主流架构，memcached做缓存，phpmyadmin轻松管理数据库。  
 高效，快速，只需要一碗泡面的时间，即可启动服务，可快速切换php版本。  
 ## 框架
 ![ECjia docker][1]
