@@ -1,17 +1,7 @@
 # 简介
 > **ECjia docker**基于docker部署web服务，采用lnmp主流架构，memcached做缓存，phpmyadmin轻松管理数据库。  
 高效，快速，只需要一碗泡面的时间，即可启动服务，可快速切换php版本。  
-#### 框架
-![ECjia docker][1]
- **services：** 存放nginx,php-fpm,mysql,memcached,phpmyadmin配置文件  
-    - `nginx`：nginx.conf为nginx配置文件，ca为存放ca证书目录  
-    - `php-fpm`：存放Dockerfile和php.ini配置  
-    - `mysql`：存放my.cnf配置文件  
-    - `memcached`：存放memcached Dockerfile  
- **db：** 存放mysql，memcached数据文件  
- **logs：** 存放日志  
- **www：** 存放网站数据  
- **env-example：** 默认变量变量配置文件，请复制为.env使用     
+更多介绍请前往：here     
 
 ## 运行
 #### 环境安装配置
