@@ -11,6 +11,7 @@
  - [Linux安装docker][2]
  - [OSX安装docker][3]
  - [安装docker-coose][4]  
+
 因为国内访问hub.docker.com速度很慢甚至不可用，后续拉取Docker镜像十分缓慢，导致启动程序缓慢。  
 强烈建议安装Docker之后配置`国内镜像加速器`，点击以下链接查看配置教程：
  - [配置镜像加速器][5]
