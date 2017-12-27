@@ -1,12 +1,12 @@
 # 简介
-> **ECjia docker**基于 Docker 部署WEB服务，采用LNMP主流架构，Memcached做缓存，phpMyAdmin轻松管理数据库。  
+> **ecjia-docker**基于 Docker 部署WEB服务，采用LNMP主流架构，Memcached做缓存，phpMyAdmin轻松管理数据库。  
 高效，快速，只需要一碗泡面的时间，即可启动服务，可快速切换 PHP 版本。  
 <font size=3%><B>更多介绍请前往：[Here](https://gitee.com/ecjia/ecjia-docker/wikis/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D)</B></font>
 
 ## 运行
 ### 环境安装配置
-本程序可以在Windows Linux OSX三个操作系统下运行，只需要docker和docker-compose组件。  
-关于如何安装docker和docker-compose，点击以下链接有详细安装教程：
+本程序可以在Windows Linux OSX三个操作系统下运行，只需要 Docker 和 Docker Compose组件。  
+关于如何安装 Docker 和 Docker Compose，点击以下链接有详细安装教程：
  - [Windows 安装 Docker][1]
  - [Linux 安装 Docker][2]
  - [OSX 安装 Docker][3]
@@ -35,7 +35,7 @@
 ``` yum
 $ sudo yum install git  
 ```
-2. 拉取ECjia docker程序：
+2. 拉取ecjia-docker程序：
 ``` git
 $ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git  
 ```
@@ -46,16 +46,16 @@ $ docker-compose up --build -d    #编译并启动
 ```
 4. 等待几分钟，当出现如图所示，即代表启动成功  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171326_dda3adcf_1661389.png "屏幕截图.png")   
-5. 现在访问`http://$服务器ip`，就可以看到ecjia程序开始运行了
+5. 现在访问`http://$服务器ip`，就可以看到 EC+到家 开始运行了
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171928_48bbd71c_1661389.png "屏幕截图.png")
 
 ### 绑定域名
-1. 你可以通过修改 nginx/conf.d/default.conf文件来绑定域名。
+1. 你可以通过修改 Nginx虚拟主机配置文件 来绑定域名。
 ```
 $ vim nginx/conf.d/default.conf    #编辑虚拟主机配置文件
 ```
-2. 设置客户端访问的域名，默认为localhost，如果站点上只有一个站点的话可以不修改这块设置;  
-但是不建议，在做完域名解析后，应该把域名替换掉localhost（如：``` server_name www.xxx.com ```）
+2. 设置客户端访问的域名，默认为 localhost ，如果站点上只有一个站点的话可以不修改这块设置，  
+但是不建议，在做完域名解析后，应该把域名替换掉 localhost（如：``` server_name www.xxx.com ```）
 ``` nginx
 #以上省略
 server_name  localhost；`    #默认为localhost
@@ -67,7 +67,7 @@ location / {
 ```
 
 ### 使用 phpMyAdmin 管理数据库
-启动容器后，访问`http://$服务器ip:8080`，即可访问phpmyadmin  
+启动容器后，访问`http://$服务器ip:8080`，即可访问phpMyAdmin  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/170641_02593a83_1661389.png "屏幕截图.png")  
 **以下为`数据库默认信息`：**
 
