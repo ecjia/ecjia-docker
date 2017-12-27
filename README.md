@@ -24,38 +24,46 @@
 | 默认http     | 80 |
 | 默认https端口     | 443 |
 | 默认phpmyadmin端口     | 8080 |
-| 默认mysql端口     | 3306 |
+| 默认mysql内部端口     | 3306 |
+| 默认mysql外部端口     | 3306 |
 | memcached端口     | 11211 |
 >其中默认端口可以通过修改`.env`文件来调整，请复制根目录下env-example为`.env`进行修改。  
 [**env-example**][6]为环境变量文件，可通过修改对应变量来调整程序配置，详情见[wiki][7]。
 
 ### 快速启动
-环境安装配置和本地端口检测都准备完毕后，就可以输入以下命令运行本容器了。
+环境安装配置和本地端口检测都准备完毕后，就可以拉取这个程序启动了。
+1. 安装git（如安装过可跳过），用于拉取程序：
 ```
-$ sudo yum install git  #安装git，如已安装可跳过
-$ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git   #拉取ecjia docker程序
+$ sudo yum install git  
+```
+2. 拉取ECjia docker程序：
+```
+$ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git  
+```
+3. 进入程序目录，快速启动：
+```
 $ cd ecjia docker    #进入程序目录
 $ docker-compose up --build -d    #编译并启动
 ```
-等待几分钟，当出现如图所示，即代表启动成功  
+4. 等待几分钟，当出现如图所示，即代表启动成功  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171326_dda3adcf_1661389.png "屏幕截图.png")   
-现在访问`http://$服务器ip`，就可以看到ecjia程序开始运行了
+5. 现在访问`http://$服务器ip`，就可以看到ecjia程序开始运行了
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171928_48bbd71c_1661389.png "屏幕截图.png")
 
 ### 绑定域名
-你可以通过修改./services/nginx/conf.d/default.conf文件来绑定域名。
+1. 你可以通过修改./services/nginx/conf.d/default.conf文件来绑定域名。
 ```
-$vim ./services/nginx/conf.d/default.conf    #编辑虚拟主机配置文件
+$ vim ./services/nginx/conf.d/default.conf    #编辑虚拟主机配置文件
 ```
-设置客户端访问的域名，默认为localhost，如果站点上只有一个站点的话可以不修改这块设置;  
+2. 设置客户端访问的域名，默认为localhost，如果站点上只有一个站点的话可以不修改这块设置;  
 但是不建议，在做完域名解析后，应该把域名替换掉localhost（如：``` server_name www.xxx.com ```）
 ```
-……
+#以上省略
 `server_name  localhost；`    #默认为localhost
 location / {
     root   /ecmoban/www;	#站点的根目录地址
     index  index.php index.html index.htm;    #程序能够访问的默认的后缀名，默认没有index.php，需要加上
-……
+#以下省略
 }
 ```
 
