@@ -55,7 +55,7 @@ $ docker-compose up --build -d    #编译并启动
 $ vim nginx/conf.d/default.conf    #编辑虚拟主机配置文件
 ```
 2. 设置客户端访问的域名，默认为 localhost ，如果站点上只有一个站点的话可以不修改这块设置，  
-但是不建议，在做完域名解析后，应该把域名替换掉 localhost（如：``` server_name www.xxx.com ```）
+但是不建议，在做完域名解析后，应该把域名替换掉 localhost（如：``` server_name www.xxx.com ```）。
 ``` nginx
 #以上省略
 server_name  localhost；`    #默认为localhost
@@ -67,7 +67,7 @@ location / {
 ```
 
 ### 使用 phpMyAdmin 管理数据库
-启动容器后，访问`http://$服务器ip:8080`，即可访问phpMyAdmin  
+启动容器后，访问`http://$服务器ip:8080`，即可访问phpMyAdmin：  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/170641_02593a83_1661389.png "屏幕截图.png")  
 **以下为`数据库默认信息`：**
 
