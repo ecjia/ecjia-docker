@@ -46,7 +46,7 @@ $ docker-compose up --build -d    #编译并启动
 ```
 4. 等待几分钟，当出现如图所示，即代表启动成功  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171326_dda3adcf_1661389.png "屏幕截图.png")   
-5. 现在访问`http://$服务器ip`，就可以看到 EC+到家 开始运行了
+5. 现在打开浏览器，访问`http://$服务器ip`，就可以看到 EC+到家 开始运行了
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171928_48bbd71c_1661389.png "屏幕截图.png")
 
 ### 绑定域名
@@ -67,7 +67,7 @@ location / {
 ```
 
 ### 使用 phpMyAdmin 管理数据库
-启动容器后，访问`http://$服务器ip:8080`，即可访问phpMyAdmin：  
+启动容器后，浏览器访问`http://$服务器ip:8080`，即可访问phpMyAdmin：  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/170641_02593a83_1661389.png "屏幕截图.png")  
 **以下为`数据库默认信息`：**
 
