@@ -37,6 +37,7 @@ services:
       - "9000"
     volumes:
       - ./www:/usr/share/nginx/html
+      - ./logs/ecjia:/usr/share/nginx/html/content/storages/logs
       - ./services/php-fpm/php.ini-${PHP_VERSION}:/usr/local/etc/php/php.ini:ro
     external_links:
       - ecjia-db
