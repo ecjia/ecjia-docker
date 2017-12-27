@@ -41,7 +41,7 @@ $ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git
 ```
 3. 进入程序目录，快速启动：
 ``` shell
-$ cd ecjia docker    #进入程序目录
+$ cd ecjia-docker    #进入程序目录
 $ docker-compose up --build -d    #编译并启动
 ```
 4. 等待几分钟，当出现如图所示，即代表启动成功  
