@@ -1,18 +1,18 @@
 # 简介
-> **ecjia docker**基于docker部署web服务，采用lnmp主流架构，memcached做缓存，phpmyadmin轻松管理数据库。  
-高效，快速，只需要一碗泡面的时间，即可启动服务，可快速切换php版本。  
-<font size=3%><B>更多介绍请前往：[here](https://gitee.com/ecjia/ecjia-docker/wikis/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D)</B></font>
+> **ECjia docker**基于 Docker 部署WEB服务，采用LNMP主流架构，Memcached做缓存，phpMyAdmin轻松管理数据库。  
+高效，快速，只需要一碗泡面的时间，即可启动服务，可快速切换 PHP 版本。  
+<font size=3%><B>更多介绍请前往：[Here](https://gitee.com/ecjia/ecjia-docker/wikis/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D)</B></font>
 
 ## 运行
 ### 环境安装配置
 本程序可以在Windows Linux OSX三个操作系统下运行，只需要docker和docker-compose组件。  
 关于如何安装docker和docker-compose，点击以下链接有详细安装教程：
- - [Windows安装docker][1]
- - [Linux安装docker][2]
- - [OSX安装docker][3]
- - [安装docker-coose][4]  
+ - [Windows 安装 Docker][1]
+ - [Linux 安装 Docker][2]
+ - [OSX 安装 Docker][3]
+ - [安装 Docker Compose][4]  
 
-因为国内访问hub.docker.com速度很慢甚至不可用，后续拉取Docker镜像十分缓慢，导致启动程序缓慢。  
+因为国内访问 hub.docker.com 速度很慢甚至不可用，后续拉取Docker镜像十分缓慢，导致启动程序缓慢。  
 强烈建议安装Docker之后配置`国内镜像加速器`，点击以下链接查看配置教程：
  - [配置镜像加速器][5]
 
@@ -21,27 +21,27 @@
 
 |名称        | 端口   |
 | --------   | -----:  |
-| 默认http     | 80 |
-| 默认https端口     | 443 |
-| 默认phpmyadmin端口     | 8080 |
-| 默认mysql内部端口     | 3306 |
-| 默认mysql外部端口     | 3306 |
-| memcached端口     | 11211 |
+| 默认 HTTP 端口     | 80 |
+| 默认 HTTPS 端口     | 443 |
+| 默认 phpMyAdmin 端口     | 8080 |
+| 默认 MySQL 内部端口     | 3306 |
+| 默认 MySQL 外部端口     | 3306 |
+| Memcached 端口     | 11211 |
 >其中默认端口可以通过修改`.env`文件来调整，请复制根目录下env-example为`.env`进行修改。  
 [**env-example**][6]为环境变量文件，可通过修改对应变量来调整程序配置，详情见[wiki][7]。
 
 ### 快速启动
 环境安装配置和本地端口检测都准备完毕后，就可以拉取这个程序启动了。
-1. 安装git（如安装过可跳过），用于拉取程序：
-```
+1. 安装Git（如安装过可跳过），用于拉取程序：
+``` yum
 $ sudo yum install git  
 ```
 2. 拉取ECjia docker程序：
-```
+``` git
 $ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git  
 ```
 3. 进入程序目录，快速启动：
-```
+``` shell
 $ cd ecjia docker    #进入程序目录
 $ docker-compose up --build -d    #编译并启动
 ```
@@ -51,15 +51,15 @@ $ docker-compose up --build -d    #编译并启动
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/171928_48bbd71c_1661389.png "屏幕截图.png")
 
 ### 绑定域名
-1. 你可以通过修改./services/nginx/conf.d/default.conf文件来绑定域名。
+1. 你可以通过修改 nginx/conf.d/default.conf文件来绑定域名。
 ```
-$ vim ./services/nginx/conf.d/default.conf    #编辑虚拟主机配置文件
+$ vim nginx/conf.d/default.conf    #编辑虚拟主机配置文件
 ```
 2. 设置客户端访问的域名，默认为localhost，如果站点上只有一个站点的话可以不修改这块设置;  
 但是不建议，在做完域名解析后，应该把域名替换掉localhost（如：``` server_name www.xxx.com ```）
-```
+``` nginx
 #以上省略
-`server_name  localhost；`    #默认为localhost
+server_name  localhost；`    #默认为localhost
 location / {
     root   /ecmoban/www;	#站点的根目录地址
     index  index.php index.html index.htm;    #程序能够访问的默认的后缀名，默认没有index.php，需要加上
@@ -67,7 +67,7 @@ location / {
 }
 ```
 
-### 使用phpmyadmin管理数据库
+### 使用 phpMyAdmin 管理数据库
 启动容器后，访问`http://$服务器ip:8080`，即可访问phpmyadmin  
 ![输入图片说明](https://gitee.com/uploads/images/2017/1226/170641_02593a83_1661389.png "屏幕截图.png")  
 **以下为`数据库默认信息`：**
@@ -83,19 +83,19 @@ location / {
 ### 更多高级功能
 本程序除了以上功能外，还支持其他功能，可点击以下标题查看如何使用。
 
- - [配置https][8]
- - [更改php，mysql版本][9]
- - [修改php，mysql，nginx配置文件][10]
- - [查看程序日志和程序数据][11]
- - [自定义各组件端口][12]
+ 1. [配置HTTPS][8]
+ 2. [更改 PHP，MySQL 版本][9]
+ 3. [修改 PHP，MySQL，Nginx 配置文件][10]
+ 4. [查看程序日志和程序数据][11]
+ 5. [自定义各组件端口][12]
 
-### [常见问题][13]
+### 常见问题
 如果你遇到一些问题和困难，你可以访问以下对应标题链接访问解决办法：
 
- - [软件常见运行问题][14]
- - [nginx常见问题][15]
- - [php-fpm常见问题][16]
- - [mysql常见问题][17]
+ 1. [软件常见运行问题][14]
+ 2. [Nginx 常见问题][15]
+ 3. [PHP-FPM 常见问题][16]
+ 4. [MySQL 常见问题][17]
 
 如果常见问题wiki没有您遇到的问题，您可提[issues](https://gitee.com/ecjia/ecjia-docker/issues)
 
