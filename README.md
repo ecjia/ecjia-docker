@@ -58,7 +58,7 @@ $ vim nginx/conf.d/default.conf    #编辑虚拟主机配置文件
 但是不建议，在做完域名解析后，应该把域名替换掉 localhost（如：``` server_name www.xxx.com ```）。
 ``` nginx
 #以上省略
-server_name  localhost；`    #默认为localhost
+server_name  localhost；    #默认为localhost
 location / {
     root   /ecmoban/www;	#站点的根目录地址
     index  index.php index.html index.htm;    #程序能够访问的默认的后缀名，默认没有index.php，需要加上
