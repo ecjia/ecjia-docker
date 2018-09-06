@@ -37,7 +37,7 @@ $ sudo yum install git
 ```
 2. 拉取ecjia-docker程序：
 ``` git
-$ git clone -b zhangchunchen https://gitee.com/ecjia/ecjia-docker.git  
+$ git clone https://gitee.com/ecjia/ecjia-docker.git  
 ```
 3. 进入程序目录，快速启动：
 ``` shell
