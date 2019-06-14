@@ -17,7 +17,6 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
         libxml2-dev \
         libmemcached-dev \
         zlib1g-dev \
@@ -25,14 +24,14 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
         libkrb5-dev \
         libldb-dev \
         libldap2-dev \
-        unixodbc-dev 
+        unixodbc-dev
 ###安装php组件
     RUN docker-php-ext-install  iconv mcrypt bcmath exif sockets session mbstring \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install  gd \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
-    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \    
+    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install   imap \
     && docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr \
     && docker-php-ext-install  pdo_odbc \

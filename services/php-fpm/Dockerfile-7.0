@@ -17,7 +17,6 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
         libxml2-dev \
         libmemcached-dev \
         zlib1g-dev \
