@@ -1,7 +1,7 @@
 ######
 # See: https://hub.docker.com/_/php/  基于官方php修改，适用于5.x至最新版本
 
-FROM php:7.2-fpm
+FROM php:7.4.0alpha1-fpm
 MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 
 ######
@@ -25,7 +25,8 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
         libldb-dev \
         libldap2-dev \
         unixodbc-dev \
-        libzip-dev
+        libzip-dev \
+        openssl libssl-dev
 ###安装php组件
     RUN docker-php-ext-install -j$(nproc)  bcmath exif sockets zip\
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
@@ -38,6 +39,4 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
     && docker-php-ext-install -j$(nproc) pdo_odbc \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
-    && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc \
-    && pecl install http://pecl.php.net/get/memcached-3.0.4.tgz \
-    && docker-php-ext-enable memcached 
+    && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc

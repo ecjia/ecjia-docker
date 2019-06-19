@@ -11,7 +11,7 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 ###国内下载加速
     RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
     && sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    &&  sed -i 's|security.debian.org|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list \
+    && sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 ###安装编译php工具
     && apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -24,9 +24,10 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
         libkrb5-dev \
         libldb-dev \
         libldap2-dev \
-        unixodbc-dev 
+        unixodbc-dev \
+        libzip-dev
 ###安装php组件
-    RUN docker-php-ext-install -j$(nproc) mcrypt bcmath exif sockets \
+    RUN docker-php-ext-install -j$(nproc) mcrypt bcmath exif sockets zip\
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && mkdir /usr/kerberos \    
@@ -39,6 +40,4 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
     && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc \
     && pecl install http://pecl.php.net/get/memcached-3.0.4.tgz \
-    && docker-php-ext-enable memcached \
-    && pecl install http://pecl.php.net/get/igbinary-2.0.5.tgz \
-    && docker-php-ext-enable igbinary
+    && docker-php-ext-enable memcached

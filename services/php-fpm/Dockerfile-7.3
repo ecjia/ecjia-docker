@@ -1,7 +1,7 @@
 ######
 # See: https://hub.docker.com/_/php/  基于官方php修改，适用于5.x至最新版本
 
-FROM php:7.2-fpm
+FROM php:7.3-fpm
 MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 
 ######
@@ -9,8 +9,8 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
 ######
 
 ###国内下载加速
-    RUN sed -i 's/httpredir.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    && sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    RUN sed -i 's/httpredir.debian.org/mirrors.163.com/g' /etc/apt/sources.list \
+    && sed -i 's/deb.debian.org/mirrors.163.com/g' /etc/apt/sources.list \
     && sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 ###安装编译php工具
     && apt-get update && apt-get install -y \
@@ -38,6 +38,5 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
     && docker-php-ext-install -j$(nproc) pdo_odbc \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
-    && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc \
-    && pecl install http://pecl.php.net/get/memcached-3.0.4.tgz \
-    && docker-php-ext-enable memcached 
+    && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc
+
