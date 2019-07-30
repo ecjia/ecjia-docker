@@ -40,3 +40,6 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so  \
     && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc
 
+### COPY swoole loader组件
+COPY ext/73/swoole_loader73.so /usr/lib64/php/modules/swoole_loader73.so
+
