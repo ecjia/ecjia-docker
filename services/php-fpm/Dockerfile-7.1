@@ -41,6 +41,3 @@ MAINTAINER ECJia Opensource Group <ecjia@ecjia.com>
     && docker-php-ext-install -j$(nproc) ldap  mysqli pdo_mysql xmlrpc \
     && pecl install http://pecl.php.net/get/memcached-3.0.4.tgz \
     && docker-php-ext-enable memcached
-
-### COPY swoole loader组件
-COPY ./ext/71/swoole_loader71.so /usr/local/lib/php/extensions/swoole_loader71.so
