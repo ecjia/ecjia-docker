@@ -9,6 +9,8 @@ services:
       - ./db/mysql:/var/lib/mysql
       - ./services/mysql/my.cnf:/etc/mysql/my.cnf:ro
       - ./logs/mysql:/var/log/
+      - ./services/mysql/importdatabase.sh:/tmp/importdatabase.sh
+      - ./services/mysql/ecjiademo_daojia.sql.gz:/tmp/ecjiademo_daojia.sql.gz
     environment:
       COMPOSE_PROJECT_NAME: 'ecjia-daojia-db'
       MYSQL_ROOT_PASSWORD: ecjia@password
@@ -17,6 +19,7 @@ services:
       MYSQL_PASSWORD: ecjia123
     env_file:
       - ./.env
+    restart: always
 
 ### phpmyadmin ###
   ecjia-daojia-phpmyadmin:
@@ -96,3 +99,4 @@ services:
       - ./.env
     depends_on:
       - ecjia-daojia-db
+    restart: always
