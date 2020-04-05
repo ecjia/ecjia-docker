@@ -88,7 +88,7 @@ services:
 ### memcached ###
   ecjia-daojia-memcached:
     build: 
-      context: ../../services/memcached
+      context: ./services/memcached
     environment:
       COMPOSE_PROJECT_NAME: 'ecjia-daojia-memcached'
     volumes:
